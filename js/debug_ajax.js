@@ -1,3 +1,4 @@
+//MODULE 3
 //initialize function called when the script loads
 function initialize(){
 	cities();
@@ -80,6 +81,7 @@ function addEvents(){
 	};
 	//assigns the color property to the css for the table
 	$(this).css('color', color);
+
 });
 //function to create a popup when event is triggered
 function clickme(){
@@ -90,5 +92,52 @@ function clickme(){
 $('table').click(clickme);
 };
 
+//ajax with jQuery
+
+//define AJAX function
+function jQueryAjax(){
+    //define a variable to hold the data
+    var mydata;
+    //basic jQuery ajax method
+    $.ajax("data/MegaCities.geojson", {
+        dataType: "json",
+        success: function(response){
+          mydata = response;
+            //check the data, can access the data here
+						console.log("this is the data:");
+            console.log(mydata);
+						//adds the stringified data to #mydiv plus some html formattting and a title
+						$("#mydiv").append('</br><b>GeoJSON data:</b>' + "<p>" + JSON.stringify(mydata) + "</p>");
+						//console.log(JSON.stringify(response));
+
+						//START DEBUGGING HERE
+
+						//all of this existed above
+
+						// function debugCallback(response){
+						// 	$("#mydiv").append('GeoJSON data:' + JSON.stringify(mydata));
+						// };
+
+						//function debugAjax(){
+							//Already defined this above
+							//var mydata;
+
+							// $.ajax("data/MegaCities.geojson", {
+							// 	dataType: "json",
+							// 	success: function(response){
+							//
+							// 		debugCallback(mydata);
+							// 	}
+							// });
+
+							// $(mydiv).append('<br>GeoJSON data:<br>' + JSON.stringify(mydata));
+						//};
+        }
+    });
+//check the data, cannot access the data outside of the ajax function
+console.log(mydata);
+};
+
 //call the initialize function when the document has loaded
+$(document).ready(jQueryAjax);
 $(document).ready(initialize);

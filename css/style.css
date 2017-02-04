@@ -1,9 +1,10 @@
 /*Stylesheet by Leanne Abrahan, Spring 2017*/
 table, th, td {
-   border: .5px solid black;
-   width: 400px;
+   border: .2em solid black;
+   width: 600px;
+   border-collapse: collapse;
+   padding: .2em;
 }
-
 /*table {
     border-collapse: collapse;
 }*/
