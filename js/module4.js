@@ -104,7 +104,8 @@ function jQueryAjax(){
         success: function(response){
           mydata = response;
             //check the data, can access the data here
-						console.log("this is the data:", mydata);
+						console.log("this is the data:");
+            console.log(mydata);
 						//adds the stringified data to #mydiv plus some html formattting and a title
 						$("#mydiv").append('</br><b>GeoJSON data:</b>' + "<p>" + JSON.stringify(mydata) + "</p>");
 						//console.log(JSON.stringify(response));
